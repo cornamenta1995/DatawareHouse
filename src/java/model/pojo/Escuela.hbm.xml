@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/05/2017 10:06:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping auto-import="true">
+    <class name="model.pojo.Escuela" table="escuela" catalog="datawarehouse" optimistic-lock="version">
+        <composite-id name="id" class="model.pojo.EscuelaId">
+            <key-property name="idEscuelas" type="int">
+                <column name="idEscuelas" />
+            </key-property>
+            <key-property name="nivelEducativoIdNivel" type="int">
+                <column name="Nivel_Educativo_idNivel" />
+            </key-property>
+            <key-property name="entidadIdEntidad" type="int">
+                <column name="Entidad_idEntidad" />
+            </key-property>
+            <key-property name="controlIdControl" type="int">
+                <column name="Control_idControl" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="control" class="model.pojo.Control" update="false" insert="false" fetch="select">
+            <column name="Control_idControl" not-null="true" />
+        </many-to-one>
+        <many-to-one name="entidad" class="model.pojo.Entidad" update="false" insert="false" fetch="select">
+            <column name="Entidad_idEntidad" not-null="true" />
+        </many-to-one>
+        <many-to-one name="nivelEducativo" class="model.pojo.NivelEducativo" update="false" insert="false" fetch="select">
+            <column name="Nivel_Educativo_idNivel" not-null="true" />
+        </many-to-one>
+        <property name="centroEducativo" type="string">
+            <column name="Centro_Educativo" length="150" />
+        </property>
+        <property name="domicilio" type="string">
+            <column name="Domicilio" length="250" />
+        </property>
+        <property name="totalDocentes" type="java.lang.Integer">
+            <column name="Total_Docentes" />
+        </property>
+        <property name="docentesMujeres" type="java.lang.Integer">
+            <column name="Docentes_Mujeres" />
+        </property>
+        <property name="docentesHombres" type="java.lang.Integer">
+            <column name="Docentes_Hombres" />
+        </property>
+        <property name="totalAlumnos" type="java.lang.Integer">
+            <column name="Total_Alumnos" />
+        </property>
+        <property name="alumnosMujeres" type="java.lang.Integer">
+            <column name="Alumnos_Mujeres" />
+        </property>
+        <property name="alumnosHombres" type="java.lang.Integer">
+            <column name="Alumnos_Hombres" />
+        </property>
+        <property name="coordenadaA" type="serializable">
+            <column name="Coordenada_A" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

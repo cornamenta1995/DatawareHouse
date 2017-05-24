@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/05/2017 10:06:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping auto-import="true">
+    <class name="model.pojo.Entidad" table="entidad" catalog="datawarehouse" optimistic-lock="version">
+        <id name="idEntidad" type="java.lang.Integer">
+            <column name="idEntidad" />
+            <generator class="identity" />
+        </id>
+        <property name="entidad" type="string">
+            <column name="Entidad" length="45" not-null="true" unique="true" />
+        </property>
+        <set name="poblacions" table="poblacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idEntidad" not-null="true" />
+            </key>
+            <one-to-many class="model.pojo.Poblacion" />
+        </set>
+        <set name="escuelas" table="escuela" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Entidad_idEntidad" not-null="true" />
+            </key>
+            <one-to-many class="model.pojo.Escuela" />
+        </set>
+    </class>
+</hibernate-mapping>

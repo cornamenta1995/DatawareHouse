@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/05/2017 10:06:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping auto-import="true">
+    <class name="model.pojo.RangoEdades" table="rango_edades" catalog="datawarehouse" optimistic-lock="version">
+        <id name="idRango" type="java.lang.Integer">
+            <column name="idRango" />
+            <generator class="identity" />
+        </id>
+        <property name="edades" type="string">
+            <column name="edades" length="70" not-null="true" />
+        </property>
+        <set name="poblacions" table="poblacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idRango" not-null="true" />
+            </key>
+            <one-to-many class="model.pojo.Poblacion" />
+        </set>
+    </class>
+</hibernate-mapping>

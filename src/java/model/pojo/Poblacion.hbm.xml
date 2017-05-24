@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/05/2017 10:06:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping auto-import="true">
+    <class name="model.pojo.Poblacion" table="poblacion" catalog="datawarehouse" optimistic-lock="version">
+        <composite-id name="id" class="model.pojo.PoblacionId">
+            <key-property name="idPoblacion" type="int">
+                <column name="idPoblacion" />
+            </key-property>
+            <key-property name="idEntidad" type="int">
+                <column name="idEntidad" />
+            </key-property>
+            <key-property name="idRango" type="int">
+                <column name="idRango" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="entidad" class="model.pojo.Entidad" update="false" insert="false" fetch="select">
+            <column name="idEntidad" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rangoEdades" class="model.pojo.RangoEdades" update="false" insert="false" fetch="select">
+            <column name="idRango" not-null="true" />
+        </many-to-one>
+        <property name="edadHombres" type="int">
+            <column name="edad_Hombres" not-null="true" />
+        </property>
+        <property name="edadMujeres" type="int">
+            <column name="edad_Mujeres" not-null="true" />
+        </property>
+        <property name="anio" type="int">
+            <column name="anio" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
