@@ -1,10 +1,10 @@
 package controller;
 
+import bean.Coordenada;
 import java.util.List;
 import model.dao.EscuelasDAO;
 import model.dao.EstadosDAO;
 import model.pojo.Escuela;
-import model.util.Calculadora;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,15 +20,14 @@ public class estadisticaController {
         
         int total = EscuelasDAO.escuelasEstado(e);
         String nombreEdo = EstadosDAO.nombre(e);
-        List<String> coordenada = EscuelasDAO.coordenadaEscuela(e);
+        List<Coordenada> coordenada = EscuelasDAO.coordenadaEscuela(e);
         
         int alumnoH = EscuelasDAO.totalAlumnosHombres(e);
         int alumnoM = EscuelasDAO.totalAlumnosMujeres(e);
         int maestroH = EscuelasDAO.totalMaestrosHombres(e);
         int maestroM = EscuelasDAO.totalMaestrosMujeres(e);
-        List<Escuela>lst = EscuelasDAO.escuelasLst(e);
-                
-        
+
+                       
         model.addAttribute("alumnoH", alumnoH);
         model.addAttribute("alumnoM", alumnoM);
         model.addAttribute("maestrosH", maestroH);

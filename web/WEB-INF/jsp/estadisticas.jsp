@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -21,9 +22,10 @@
     <script type="text/javascript">
     function initialize() {
       var marcadores = [
-        ['León', 42.603, -5.577],
-        ['Salamanca', 40.963, -5.669],
-        ['Zamora', 41.503, -5.744]
+           <c:forEach var="s" items="${requestScope.gps}">
+                ['Escuela',<c:out value="${s.longitud}"/>,<c:out value="${s.latitud}"/>],
+           </c:forEach>
+                 ['Escuela',-99.04916,19.59907]
       ];
       var map = new google.maps.Map(document.getElementById('mapa'), {
         zoom: 7,
@@ -79,13 +81,9 @@
 							<div class="thumbnail">
 
 								<div class="caption">
-
-                                    <strong>M </strong><span></span>
+                               
                                     <br/>
-                                    
-                                   
-
-								</div>
+							</div>
 							</div>
 						</div>
 						<div class="col-md-4">
