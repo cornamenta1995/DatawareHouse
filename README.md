@@ -7,7 +7,7 @@ El sistema que se implementará realizará un análisis de datos de la informaci
 
 **Pre-procesamiento**: Procesamiento de limpieza de los datos. 
 
-**Análisis estadístico**: Análisis estadísctico de la información (univariable, bivariable). 
+**Análisis estadístico**: Análisis estadístico de la información (univariable, bivariable). 
 
 **Aprendizaje máquina**: Algoritmos de aprendizaje máquina. 
 
