@@ -28,8 +28,8 @@
                  ['Escuela',-99.04916,19.59907]
       ];
       var map = new google.maps.Map(document.getElementById('mapa'), {
-        zoom: 7,
-        center: new google.maps.LatLng(41.503, -5.744),
+        zoom: 5,
+        center: new google.maps.LatLng(19.419444,-99.145556),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
       var infowindow = new google.maps.InfoWindow();
@@ -82,7 +82,11 @@
 
 								<div class="caption">
                                
+                                    <strong>Maestros en el Estado : ${requestScope.maestrosH} </strong><span></span>
                                     <br/>
+                                    <strong>Maestras en el Estado : ${requestScope.maestrosM} </strong><span></span>
+                                    <br/>
+                                    <strong>Total de Maestros : ${requestScope.totalM} escuelas <strong><span></span>
 							</div>
 							</div>
 						</div>

@@ -7,7 +7,7 @@ import model.dao.UsuarioDAO;
 import model.dao.poblacionDAO;
 import model.pojo.Entidad;
 import model.pojo.Usuario;
-import model.util.Calculadora;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,13 +24,9 @@ public class loginController {
             List<Usuario> dao = UsuarioDAO.buscarUsuario(correo, contra);
             if(!dao.isEmpty()){
                 Usuario usuarioTO = dao.get(0);
-                if(usuarioTO.getTipoUsuario().getIdtipoUsuario() == 1){
-                    return "administrador";
-                }else{
-                    
                     String cuentaTotal = EscuelasDAO.cuentaTotal();
                     List<Entidad> listaEstados = EstadosDAO.listaEstados();
-                    int tamanio = Calculadora.tamanioMuestra(Integer.parseInt(cuentaTotal));
+                    int tamanio = tamanioMuestra(Integer.parseInt(cuentaTotal));
                     String poblacion[] = poblacionDAO.poblacionTotal().split(",");
                     
                     model.addAttribute("usuario",usuarioTO);
@@ -39,6 +35,10 @@ public class loginController {
                     model.addAttribute("muestra",tamanio);
                     model.addAttribute("mujeres", poblacion[0]);
                     model.addAttribute("hombres",poblacion[1]);
+              
+                if(usuarioTO.getTipoUsuario().getIdtipoUsuario() == 1){
+                    return "administrador";
+                }else{
                     
                     return "gerente";
                 }
@@ -48,5 +48,12 @@ public class loginController {
         }  
         return "login";
   
+    }
+    private int tamanioMuestra(int n){
+        if(n == 0){
+            return 0;
+        }else{
+            return (1067)/(1+(1066/n));
+        }    
     }
 }

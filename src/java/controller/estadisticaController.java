@@ -32,10 +32,12 @@ public class estadisticaController {
         model.addAttribute("alumnoM", alumnoM);
         model.addAttribute("maestrosH", maestroH);
         model.addAttribute("maestrosM", maestroM);
+        model.addAttribute("totalM", maestroM+maestroH);
         model.addAttribute("total",total);
         model.addAttribute("nombreEdo",nombreEdo);
         model.addAttribute("gps",coordenada);
-        
+
+
         return "estadisticas";
     }
 }

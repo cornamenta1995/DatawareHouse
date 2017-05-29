@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -27,7 +28,7 @@
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1>
-					Millenium Falcon! <small>Analizadores de Datos</small>
+					Millenium Falcon! <small>Analizadores de Datos : Modo Administrador</small>
 				</h1>
 			</div>
 
@@ -59,11 +60,35 @@
 
 								<div class="caption">
 
+                                   <form action="estadistica.htm" method="post">
                                     <strong>Elige un estado: </strong>
                                     <br/><br/>
-                                   <select>
-                                       
+                                    <select id="edo" name="edo">
+                                       <c:forEach var="edo" items="${requestScope.listaEstado}">
+                                            <option value="${edo.idEntidad}">${edo.entidad}</option>
+                                       </c:forEach>
                                    </select>
+                                    <button type="submit" class="btn btn-default">
+							Mostrar Estadisticas
+                                    </button><br/><br/>
+                                </form>
+								</div>
+							</div>
+                                            </div>
+						<div class="col-md-4">
+							<div class="thumbnail">
+
+								<div class="caption">
+
+                                    <strong>Margen de error: 3% </strong><span></span>
+                                    <br/>
+                                    <strong>Intervalo de Confianza: 95% </strong><span></span>
+                                    <br/>
+                                    <strong>Probabilidad de Fracaso: 50%   </strong><span></span>
+                                    <br/>
+                                    <strong>Probabilidad de Éxito: 50%  </strong><span></span>
+                                    <br/>
+                                    <strong>Tamaño de la Muestra: ${requestScope.muestra} <strong><span></span>
 
 								</div>
 							</div>
@@ -73,21 +98,11 @@
 
 								<div class="caption">
 
-                                    <strong>Margen de error: </strong><span></span>
+                                    <strong>Población Masculina : ${requestScope.hombres} </strong><span></span>
                                     <br/>
-                                    <strong>Número total de errores: <strong><span></span>
-
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="thumbnail">
-
-								<div class="caption">
-
-                                    <strong>Población total: </strong><span></span>
+                                    <strong>Población Femenina : ${requestScope.mujeres} </strong><span></span>
                                     <br/>
-                                    <strong>Número total de tuplas: <strong><span></span>
+                                    <strong>Escuelas Totales : ${requestScope.cuentaEscuela} escuelas <strong><span></span>
 
 								</div>
 							</div>
