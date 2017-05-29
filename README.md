@@ -30,6 +30,15 @@ Nuño Rodríguez Marlon Israel
 
 Sánchez González Aldo Rodrigo
 
+## Servidor Web
+Para iniciar el proyecto se ingresa en la siguiente página
+http://milleniumfalconqci.ddns.net:8080/ServidorDatawareHouse/
+y se ingresa con los siguientes usuarios : 
+
+Administrador : marlini306@hotmail.com Contra : 123456 
+
+Gerente : aldo@hotmail.com Contra : 123456
+
 ## Licencia
 
 La licencia de este proyecto es de código abierto con el motivo de su mejora y contribución.
